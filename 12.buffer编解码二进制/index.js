@@ -8,3 +8,6 @@ console.log('buffer3', buffer3); // <Buffer 00 00 00 00 00 00 00 00 00 00 00 00 
 
 buffer2.writeInt8(12, 0);
 console.log(buffer2);
+
+// 针对字符串和数组，可以直接用Buffer.from()去创造一个Buffer对象
+// Buffer对象和字符串直接转换：buff.toString()
