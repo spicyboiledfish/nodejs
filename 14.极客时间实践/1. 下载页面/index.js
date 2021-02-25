@@ -12,6 +12,5 @@ app.use(
     mount('/', (ctx, next) => {
         ctx.body = fs.readFileSync(__dirname + '/source/index.htm', 'utf-8');
     })
-
 );
 app.listen(3000);
