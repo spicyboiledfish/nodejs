@@ -6,11 +6,15 @@ class HelloWorld extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    btnClick(){
+        alert('大家一起来玩啊！！！！');
+    }
     
 
     render() {
         return (
-            <div>Hello World!!!</div>
+            <div onCLick={btnClick}>Hello World!!!</div>
         );
     }
 }

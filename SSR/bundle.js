@@ -11,8 +11,14 @@ class HelloWorld extends React.Component {
     super(props);
   }
 
+  btnClick() {
+    alert('大家一起来玩啊！！！！');
+  }
+
   render() {
-    return /*#__PURE__*/React.createElement("div", null, "Hello World!!!");
+    return /*#__PURE__*/React.createElement("div", {
+      onCLick: btnClick
+    }, "Hello World!!!");
   }
 
 }
