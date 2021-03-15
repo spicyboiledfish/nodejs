@@ -40,3 +40,9 @@
     <div id="root">${html}</div>
     ```
     
+
+- 双端代码自动编译和监听：
+    - 前端代码仍然使用webpack打包，编译开启watch，可以监听文件变化并编译
+    - 服务端代码可以使用webpack打包：
+        - 需要配置target: "node"
+        - 增加externals选项，使用webpack-node-externals来排除不需要打包的模块， 因为node会自动载入这些包，可以让打包的文件更小
