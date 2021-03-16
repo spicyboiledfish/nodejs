@@ -18,8 +18,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default(ctx, next) {
   console.log('ctx.request.path', ctx.request.path);
   var path = ctx.request.path;
+  var context = {};
   var html = (0, _server.renderToString)( /*#__PURE__*/_react.default.createElement(_reactRouter.StaticRouter, {
-    location: path
+    location: path,
+    context: context
   }, /*#__PURE__*/_react.default.createElement(_index.default, null)));
   ctx.body = "<!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <title>my react ssr</title>\n    </head>\n    <body>\n        <div id=\"root\">".concat(html, "</div>\n    </body>\n    </html>\n    <script type=\"text/javascript\"  src=\"index.js\"></script>\n    ");
   return next();

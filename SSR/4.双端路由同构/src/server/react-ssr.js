@@ -6,7 +6,8 @@ import App from '../router/index';
 export default (ctx, next) => {
     console.log('ctx.request.path', ctx.request.path);
     const path = ctx.request.path;
-    const html = renderToString(<StaticRouter location={path}><App /></StaticRouter>);
+    const context = {};
+    const html = renderToString(<StaticRouter location={path} context={context}><App /></StaticRouter>);
     ctx.body = `<!DOCTYPE html>
     <html lang="en">
     <head>
