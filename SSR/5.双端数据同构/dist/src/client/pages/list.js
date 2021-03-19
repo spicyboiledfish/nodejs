@@ -42,8 +42,9 @@ var List = /*#__PURE__*/function (_React$Component) {
     (0, _classCallCheck2.default)(this, List);
     _this = _super.call(this, props);
     var initialData = null;
+    console.log('process.env.BABEL_ENV', process.env.BABEL_ENV);
 
-    if (__SERVER__) {
+    if (process.env.BABEL_ENV === 'node') {
       initialData = props.staticContext.initialData || {};
     } else {
       initialData = props.initialData || {};

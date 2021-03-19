@@ -5,8 +5,9 @@ class List extends React.Component {
     constructor(props) {
         super(props);
         let initialData = null;
-        if(__SERVER__){
-            initialData = props.staticContext.initialData||{};
+        console.log('process.env.BABEL_ENV', process.env.BABEL_ENV);
+        if(process.env.BABEL_ENV === 'node'){
+            initialData = props.staticContext.initialData || {};
         }else{
             initialData = props.initialData || {};
         }

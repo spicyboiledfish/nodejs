@@ -1,5 +1,5 @@
 const path = require('path');
-
+const Webpack = require('webpack');
 const resolvePath = (pathstr) => path.resolve(__dirname, pathstr);
 
 module.exports = {
@@ -15,5 +15,12 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/
         }]
-    }
+    },
+    plugins: [
+        new Webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+            }
+        })
+    ]
 }
