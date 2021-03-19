@@ -13,15 +13,23 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _config = _interopRequireDefault(require("./config"));
-
-var App = function App() {
+var App = function App(_ref) {
+  var routeList = _ref.routeList;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/index"
   }, "\u9996\u9875"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/list"
-  }, "\u5217\u8868\u9875"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, _config.default.map(function (item) {
-    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, (0, _extends2.default)({
+  }, "\u5217\u8868\u9875"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, routeList.map(function (item, index) {
+    return item.initialData ? /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+      key: item.path,
+      exact: item.exact,
+      path: item.path,
+      render: function render(props) {
+        return /*#__PURE__*/_react.default.createElement(item.component, (0, _extends2.default)({}, props, {
+          initialData: item.initialData
+        }));
+      }
+    }) : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, (0, _extends2.default)({
       key: item.path
     }, item));
   })));

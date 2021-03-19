@@ -40,17 +40,40 @@ var List = /*#__PURE__*/function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, List);
-    _this.state = {
-      list: []
-    };
-    return (0, _possibleConstructorReturn2.default)(_this);
+    _this = _super.call(this, props);
+    var initialData = null;
+
+    if (__SERVER__) {
+      initialData = props.staticContext.initialData || {};
+    } else {
+      initialData = props.initialData || {};
+    }
+
+    _this.state = initialData;
+    return _this;
   }
 
   (0, _createClass2.default)(List, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      if (!this.state.data) {
+        //如果没有数据，则进行数据请求
+        List.getInitialProps().then(function (res) {
+          _this2.setState({
+            data: res.data || []
+          });
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var list = this.state.list;
-      return /*#__PURE__*/_react.default.createElement("div", null, list.map(function (item, index) {
+      var _this$state = this.state,
+          code = _this$state.code,
+          data = _this$state.data;
+      return /*#__PURE__*/_react.default.createElement("div", null, data && data.map(function (item, index) {
         return /*#__PURE__*/_react.default.createElement("div", {
           key: index
         }, /*#__PURE__*/_react.default.createElement("span", null, item.title), /*#__PURE__*/_react.default.createElement("span", null, item.desc), /*#__PURE__*/_react.default.createElement("img", {
@@ -60,7 +83,7 @@ var List = /*#__PURE__*/function (_React$Component) {
             height: '20px'
           }
         }));
-      }));
+      }), !data && /*#__PURE__*/_react.default.createElement("div", null, "\u6682\u65E0\u6570\u636E"));
     }
   }]);
   return List;

@@ -3,9 +3,14 @@ import data from '../../api';
 
 class List extends React.Component {
     constructor(props) {
-        this.state = {
-            list: []
+        super(props);
+        let initialData = null;
+        if(__SERVER__){
+            initialData = props.staticContext.initialData||{};
+        }else{
+            initialData = props.initialData || {};
         }
+        this.state=initialData;
     }
 
     static getInitialProps = async () => {
@@ -23,12 +28,23 @@ class List extends React.Component {
         return res;
     }
 
+    componentDidMount(){
+        if(!this.state.data){
+            //如果没有数据，则进行数据请求
+            List.getInitialProps().then(res=>{
+                this.setState({
+                    data: res.data||[]
+                })
+            })
+        }
+    }
+
     render() {
-        const { list } = this.state;
+        const { code, data } = this.state;
         return (
             <div>
                 {
-                    list.map((item, index) => {
+                    data && data.map((item, index) => {
                         return (
                             <div key={index}>
                                 <span>{item.title}</span>
@@ -38,6 +54,7 @@ class List extends React.Component {
                         );
                     })
                 }
+                {!data && <div>暂无数据</div>}
             </div>
         );
     }
