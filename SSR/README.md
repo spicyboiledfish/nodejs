@@ -83,4 +83,8 @@
     - 我们在服务端直出组件的同时，需要将数据也输出给浏览器，这就叫数据脱水。
     - 在浏览器获取数据，就直接取JSON.parse(document.getElementById('ssr').value); 将数据和组件调和渲染的过程就是数据注水。
 
+- SEO TDK支持
+    - TDK: T: title当前页面的标题；D: description当前页面的描述; K: keywords当前页面的关键词.
+    - 动态TDK: 数据预取中做手脚
+
 
