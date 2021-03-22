@@ -1,7 +1,6 @@
 import React from 'react';
 import data from '../../api';
 import { Helmet } from 'react-helmet';
-import './index.scss';
 
 class List extends React.Component {
     constructor(props) {
@@ -55,7 +54,7 @@ class List extends React.Component {
         const { code, data, page } = this.state;
         const { tdk = {}} = page;
         return (
-            <div className="list">
+            <div>
                 <Helmet>
                     <title>{tdk.title}</title>
                     <meta name="description" content={tdk.description} />
