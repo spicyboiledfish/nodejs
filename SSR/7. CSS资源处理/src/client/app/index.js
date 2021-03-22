@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import matchRoute from '../../router/matchRoute';
 import App from '../../router/index';
 import routeList from '../../router/config';
-import './index.less';
 
 const initialData = JSON.parse(document.getElementById('ssr').value);
 

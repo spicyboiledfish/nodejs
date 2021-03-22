@@ -19,27 +19,29 @@ module.exports = {
             exclude: /node_modules/
         },
         {
-            test: /\.less$/,
+            test: /\.(sa|sc|c)ss$/,
             use: [
                 {
                     loader: MiniCssExtractPlugin.loader,
                 },
+                {loader:'css-loader'},
                 {
-                    loader: 'css-loader',
+                    loader: "postcss-loader"
                 },
                 {
-                    loader: 'less-loader'       
-                }      
+                    loader: "sass-loader"
+                }
             ]
-        }, 
+        },
         {
             test: /\.(png|jpg|gif)$/,
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: 'img/[name].[ext]'//配置图片的输出路径和名称
+                    name: 'img/[name].[ext]' //配置图片的输出路径和名称
                 }
             }]
+
         }]
     },
     plugins: [

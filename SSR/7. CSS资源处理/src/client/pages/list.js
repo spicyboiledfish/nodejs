@@ -1,7 +1,7 @@
 import React from 'react';
 import data from '../../api';
 import { Helmet } from 'react-helmet';
-import './index.less';
+import './index.scss';
 
 class List extends React.Component {
     constructor(props) {

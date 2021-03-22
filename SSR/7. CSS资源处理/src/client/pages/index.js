@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import './index.less';
+import './index.scss';
 
 class Index extends React.Component {
     constructor(props) {
