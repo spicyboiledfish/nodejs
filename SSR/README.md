@@ -85,6 +85,8 @@
 
 - SEO TDK支持
     - TDK: T: title当前页面的标题；D: description当前页面的描述; K: keywords当前页面的关键词.
-    - 动态TDK: 数据预取中做手脚
+    - 动态TDK: 数据预取中做手脚. 
+      - 方法1： 在获取数据的同时，新增属性表示TDK，再带入到fetchResult里面，到页面后再解构。
+      - 方法2： react-helmet组件
 
 
